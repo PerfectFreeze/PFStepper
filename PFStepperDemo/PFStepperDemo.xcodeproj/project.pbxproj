@@ -14,7 +14,7 @@
 		92165C9D1C2A67A500274852 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92165C9B1C2A67A500274852 /* LaunchScreen.storyboard */; };
 		92165CA81C2A67A500274852 /* PFStepperDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92165CA71C2A67A500274852 /* PFStepperDemoTests.swift */; };
 		92165CB31C2A67A500274852 /* PFStepperDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92165CB21C2A67A500274852 /* PFStepperDemoUITests.swift */; };
-		92165CC51C2A69EA00274852 /* PFStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92165CC41C2A69EA00274852 /* PFStepper.swift */; };
+		9232BFFB1DA895FC00B4EF82 /* PFStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9232BFFA1DA895FC00B4EF82 /* PFStepper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,7 +48,7 @@
 		92165CAE1C2A67A500274852 /* PFStepperDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PFStepperDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		92165CB21C2A67A500274852 /* PFStepperDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PFStepperDemoUITests.swift; sourceTree = "<group>"; };
 		92165CB41C2A67A500274852 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		92165CC41C2A69EA00274852 /* PFStepper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PFStepper.swift; sourceTree = "<group>"; };
+		9232BFFA1DA895FC00B4EF82 /* PFStepper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PFStepper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,7 +79,7 @@
 		92165C861C2A67A500274852 = {
 			isa = PBXGroup;
 			children = (
-				92165CC31C2A69EA00274852 /* Class */,
+				9232BFF91DA895FC00B4EF82 /* Class */,
 				92165C911C2A67A500274852 /* PFStepperDemo */,
 				92165CA61C2A67A500274852 /* PFStepperDemoTests */,
 				92165CB11C2A67A500274852 /* PFStepperDemoUITests */,
@@ -128,12 +128,13 @@
 			path = PFStepperDemoUITests;
 			sourceTree = "<group>";
 		};
-		92165CC31C2A69EA00274852 /* Class */ = {
+		9232BFF91DA895FC00B4EF82 /* Class */ = {
 			isa = PBXGroup;
 			children = (
-				92165CC41C2A69EA00274852 /* PFStepper.swift */,
+				9232BFFA1DA895FC00B4EF82 /* PFStepper.swift */,
 			);
-			path = Class;
+			name = Class;
+			path = ../Class;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,7 +200,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = Cee;
 				TargetAttributes = {
 					92165C8E1C2A67A500274852 = {
@@ -272,7 +273,7 @@
 			files = (
 				92165C951C2A67A500274852 /* ViewController.swift in Sources */,
 				92165C931C2A67A500274852 /* AppDelegate.swift in Sources */,
-				92165CC51C2A69EA00274852 /* PFStepper.swift in Sources */,
+				9232BFFB1DA895FC00B4EF82 /* PFStepper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,8 +341,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -363,7 +366,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -384,8 +387,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -401,9 +406,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

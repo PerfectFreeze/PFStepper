@@ -58,9 +58,9 @@ public class PFStepper: UIControl {
 //        button.contentHorizontalAlignment = .Left
 //        button.contentVerticalAlignment = .Top
 //        button.titleEdgeInsets = UIEdgeInsetsMake(10.0, 10.0, 0.0, 0.0)
-        button.addTarget(self, action: "topButtonTouchDown:", forControlEvents: .TouchDown)
-        button.addTarget(self, action: "buttonTouchUp:", forControlEvents: UIControlEvents.TouchUpInside)
-        button.addTarget(self, action: "buttonTouchUp:", forControlEvents: UIControlEvents.TouchUpOutside)
+        button.addTarget(self, action: #selector(PFStepper.topButtonTouchDown(_:)), forControlEvents: .TouchDown)
+        button.addTarget(self, action: #selector(PFStepper.buttonTouchUp(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+        button.addTarget(self, action: #selector(PFStepper.buttonTouchUp(_:)), forControlEvents: UIControlEvents.TouchUpOutside)
         return button
     }()
     lazy var bottomButton: UIButton = {
@@ -69,9 +69,9 @@ public class PFStepper: UIControl {
         button.setTitleColor(self.buttonsTextColor, forState: .Normal)
         button.backgroundColor = self.buttonsBackgroundColor
         button.titleLabel?.font = self.buttonsFont
-        button.addTarget(self, action: "bottomButtonTouchDown:", forControlEvents: .TouchDown)
-        button.addTarget(self, action: "buttonTouchUp:", forControlEvents: UIControlEvents.TouchUpInside)
-        button.addTarget(self, action: "buttonTouchUp:", forControlEvents: UIControlEvents.TouchUpOutside)
+        button.addTarget(self, action: #selector(PFStepper.bottomButtonTouchDown(_:)), forControlEvents: .TouchDown)
+        button.addTarget(self, action: #selector(PFStepper.buttonTouchUp(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+        button.addTarget(self, action: #selector(PFStepper.buttonTouchUp(_:)), forControlEvents: UIControlEvents.TouchUpOutside)
         return button
     }()
     
@@ -128,7 +128,7 @@ public class PFStepper: UIControl {
         addSubview(bottomButton)
         
         backgroundColor = buttonsBackgroundColor
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "reset", name: UIApplicationWillResignActiveNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(PFStepper.reset), name: UIApplicationWillResignActiveNotification, object: nil)
     }
     
     public override func layoutSubviews() {
@@ -201,7 +201,7 @@ extension PFStepper {
     }
     
     func scheduleTimer() {
-        timer = NSTimer.scheduledTimerWithTimeInterval(timerInterval, target: self, selector: "handleTimerFire:", userInfo: nil, repeats: true)
+        timer = NSTimer.scheduledTimerWithTimeInterval(timerInterval, target: self, selector: #selector(PFStepper.handleTimerFire(_:)), userInfo: nil, repeats: true)
     }
     
     func resetTimer() {
