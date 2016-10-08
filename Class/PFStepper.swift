@@ -8,80 +8,80 @@
 
 import UIKit
 
-public class PFStepper: UIControl {
-    public var value: Double = 0 {
+open class PFStepper: UIControl {
+    open var value: Double = 0 {
         didSet {
             value = min(maximumValue, max(minimumValue, value))
             
             let isInteger = floor(value) == value
             
             if showIntegerIfDoubleIsInteger && isInteger {
-                topButton.setTitle(String(stringInterpolationSegment: Int(value)), forState: .Normal)
-                bottomButton.setTitle(String(stringInterpolationSegment: Int(value + stepValue)), forState: .Normal)
+                topButton.setTitle(String(stringInterpolationSegment: Int(value)), for: UIControlState())
+                bottomButton.setTitle(String(stringInterpolationSegment: Int(value + stepValue)), for: UIControlState())
             } else {
-                topButton.setTitle(String(stringInterpolationSegment: value), forState: .Normal)
-                bottomButton.setTitle(String(stringInterpolationSegment: value + stepValue), forState: .Normal)
+                topButton.setTitle(String(stringInterpolationSegment: value), for: UIControlState())
+                bottomButton.setTitle(String(stringInterpolationSegment: value + stepValue), for: UIControlState())
             }
             
             if oldValue != value {
-                sendActionsForControlEvents(.ValueChanged)
+                sendActions(for: .valueChanged)
             }
             if value <= minimumValue {
-                topButton.setTitle("", forState: .Normal)
-                topButton.backgroundColor = UIColor.whiteColor()
+                topButton.setTitle("", for: UIControlState())
+                topButton.backgroundColor = UIColor.white
             } else {
                 topButton.backgroundColor = UIColor(red: 238/255.0, green: 238/255.0, blue: 238/255.0, alpha: 1)
                 topButton.alpha = 0.5
             }
             if value >= maximumValue {
-                bottomButton.setTitle("", forState: .Normal)
+                bottomButton.setTitle("", for: UIControlState())
             } else {
             }
         }
     }
-    public var minimumValue: Double = 0
-    public var maximumValue: Double = 24
-    public var stepValue: Double = 1
-    public var autorepeat: Bool = true
-    public var showIntegerIfDoubleIsInteger: Bool = true
-    public var topButtonText: String = ""
-    public var bottomButtonText: String = "1"
-    public var buttonsTextColor: UIColor =  UIColor(red: 0.0/255.0, green: 122.0/255.0, blue: 255.0/255.0, alpha: 1.0)
-    public var buttonsBackgroundColor: UIColor = UIColor.whiteColor()
-    public var buttonsFont = UIFont(name: "AvenirNext-Bold", size: 20.0)!
+    open var minimumValue: Double = 0
+    open var maximumValue: Double = 24
+    open var stepValue: Double = 1
+    open var autorepeat: Bool = true
+    open var showIntegerIfDoubleIsInteger: Bool = true
+    open var topButtonText: String = ""
+    open var bottomButtonText: String = "1"
+    open var buttonsTextColor: UIColor =  UIColor(red: 0.0/255.0, green: 122.0/255.0, blue: 255.0/255.0, alpha: 1.0)
+    open var buttonsBackgroundColor: UIColor = UIColor.white
+    open var buttonsFont = UIFont(name: "AvenirNext-Bold", size: 20.0)!
     lazy var topButton: UIButton = {
         let button = UIButton()
-        button.setTitle(self.topButtonText, forState: .Normal)
-        button.setTitleColor(self.buttonsTextColor, forState: .Normal)
+        button.setTitle(self.topButtonText, for: UIControlState())
+        button.setTitleColor(self.buttonsTextColor, for: UIControlState())
         button.backgroundColor = self.buttonsBackgroundColor
         button.titleLabel?.font = self.buttonsFont
 //        button.contentHorizontalAlignment = .Left
 //        button.contentVerticalAlignment = .Top
 //        button.titleEdgeInsets = UIEdgeInsetsMake(10.0, 10.0, 0.0, 0.0)
-        button.addTarget(self, action: #selector(PFStepper.topButtonTouchDown(_:)), forControlEvents: .TouchDown)
-        button.addTarget(self, action: #selector(PFStepper.buttonTouchUp(_:)), forControlEvents: UIControlEvents.TouchUpInside)
-        button.addTarget(self, action: #selector(PFStepper.buttonTouchUp(_:)), forControlEvents: UIControlEvents.TouchUpOutside)
+        button.addTarget(self, action: #selector(PFStepper.topButtonTouchDown(_:)), for: .touchDown)
+        button.addTarget(self, action: #selector(PFStepper.buttonTouchUp(_:)), for: UIControlEvents.touchUpInside)
+        button.addTarget(self, action: #selector(PFStepper.buttonTouchUp(_:)), for: UIControlEvents.touchUpOutside)
         return button
     }()
     lazy var bottomButton: UIButton = {
         let button = UIButton()
-        button.setTitle(self.bottomButtonText, forState: .Normal)
-        button.setTitleColor(self.buttonsTextColor, forState: .Normal)
+        button.setTitle(self.bottomButtonText, for: UIControlState())
+        button.setTitleColor(self.buttonsTextColor, for: UIControlState())
         button.backgroundColor = self.buttonsBackgroundColor
         button.titleLabel?.font = self.buttonsFont
-        button.addTarget(self, action: #selector(PFStepper.bottomButtonTouchDown(_:)), forControlEvents: .TouchDown)
-        button.addTarget(self, action: #selector(PFStepper.buttonTouchUp(_:)), forControlEvents: UIControlEvents.TouchUpInside)
-        button.addTarget(self, action: #selector(PFStepper.buttonTouchUp(_:)), forControlEvents: UIControlEvents.TouchUpOutside)
+        button.addTarget(self, action: #selector(PFStepper.bottomButtonTouchDown(_:)), for: .touchDown)
+        button.addTarget(self, action: #selector(PFStepper.buttonTouchUp(_:)), for: UIControlEvents.touchUpInside)
+        button.addTarget(self, action: #selector(PFStepper.buttonTouchUp(_:)), for: UIControlEvents.touchUpOutside)
         return button
     }()
     
     enum StepperState {
-        case Stable, ShouldIncrease, ShouldDecrease
+        case stable, shouldIncrease, shouldDecrease
     }
     
-    var stepperState = StepperState.Stable {
+    var stepperState = StepperState.stable {
         didSet {
-            if stepperState != .Stable {
+            if stepperState != .stable {
                 updateValue()
                 if autorepeat {
                     scheduleTimer()
@@ -90,8 +90,8 @@ public class PFStepper: UIControl {
         }
     }
     
-    let limitHitAnimationDuration = NSTimeInterval(0.1)
-    var timer: NSTimer?
+    let limitHitAnimationDuration = TimeInterval(0.1)
+    var timer: Timer?
     
     /** When UIStepper reaches its top speed, it alters the value with a time interval of ~0.05 sec.
      The user pressing and holding on the stepper repeatedly:
@@ -99,7 +99,7 @@ public class PFStepper: UIControl {
      - For the next 1.5 sec, it changes the value every 0.1 sec.
      - Then, every 0.05 sec.
      */
-    let timerInterval = NSTimeInterval(0.05)
+    let timerInterval = TimeInterval(0.05)
     
     /// Check the handleTimerFire: function. While it is counting the number of fires, it decreases the mod value so that the value is altered more frequently.
     var timerFireCount = 0
@@ -128,10 +128,10 @@ public class PFStepper: UIControl {
         addSubview(bottomButton)
         
         backgroundColor = buttonsBackgroundColor
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(PFStepper.reset), name: UIApplicationWillResignActiveNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(PFStepper.reset), name: NSNotification.Name.UIApplicationWillResignActive, object: nil)
     }
     
-    public override func layoutSubviews() {
+    open override func layoutSubviews() {
         let buttonWidth = bounds.size.width
         
         topButton.frame = CGRect(x: 0, y: 0, width: buttonWidth, height: bounds.size.height / 2)
@@ -139,60 +139,60 @@ public class PFStepper: UIControl {
     }
     
     func updateValue() {
-        if stepperState == .ShouldIncrease {
+        if stepperState == .shouldIncrease {
             value += stepValue
-        } else if stepperState == .ShouldDecrease {
+        } else if stepperState == .shouldDecrease {
             value -= stepValue
         }
     }
     
     deinit {
         resetTimer()
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
     }
 }
 
 // MARK: - Button Events
 extension PFStepper {
     func reset() {
-        stepperState = .Stable
+        stepperState = .stable
         resetTimer()
         
-        topButton.enabled = true
-        bottomButton.enabled = true
+        topButton.isEnabled = true
+        bottomButton.isEnabled = true
     }
     
-    func topButtonTouchDown(button: UIButton) {
-        bottomButton.enabled = false
+    func topButtonTouchDown(_ button: UIButton) {
+        bottomButton.isEnabled = false
         resetTimer()
         
         if value == minimumValue {
-            button.setTitle("", forState: .Normal)
+            button.setTitle("", for: UIControlState())
         } else {
-            stepperState = .ShouldDecrease
+            stepperState = .shouldDecrease
         }
         
     }
     
-    func bottomButtonTouchDown(button: UIButton) {
-        topButton.enabled = false
+    func bottomButtonTouchDown(_ button: UIButton) {
+        topButton.isEnabled = false
         resetTimer()
         
         if value == maximumValue {
-            button.setTitle("", forState: .Normal)
+            button.setTitle("", for: UIControlState())
         } else {
-            stepperState = .ShouldIncrease
+            stepperState = .shouldIncrease
         }
     }
     
-    func buttonTouchUp(button: UIButton) {
+    func buttonTouchUp(_ button: UIButton) {
         reset()
     }
 }
 
 // MARK: - Timer
 extension PFStepper {
-    func handleTimerFire(timer: NSTimer) {
+    func handleTimerFire(_ timer: Timer) {
         timerFireCount += 1
         
         if timerFireCount % timerFireCountModulo == 0 {
@@ -201,7 +201,7 @@ extension PFStepper {
     }
     
     func scheduleTimer() {
-        timer = NSTimer.scheduledTimerWithTimeInterval(timerInterval, target: self, selector: #selector(PFStepper.handleTimerFire(_:)), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: timerInterval, target: self, selector: #selector(PFStepper.handleTimerFire(_:)), userInfo: nil, repeats: true)
     }
     
     func resetTimer() {

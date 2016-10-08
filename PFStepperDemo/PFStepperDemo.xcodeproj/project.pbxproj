@@ -12,27 +12,8 @@
 		92165C981C2A67A500274852 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92165C961C2A67A500274852 /* Main.storyboard */; };
 		92165C9A1C2A67A500274852 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92165C991C2A67A500274852 /* Assets.xcassets */; };
 		92165C9D1C2A67A500274852 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92165C9B1C2A67A500274852 /* LaunchScreen.storyboard */; };
-		92165CA81C2A67A500274852 /* PFStepperDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92165CA71C2A67A500274852 /* PFStepperDemoTests.swift */; };
-		92165CB31C2A67A500274852 /* PFStepperDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92165CB21C2A67A500274852 /* PFStepperDemoUITests.swift */; };
 		9232BFFB1DA895FC00B4EF82 /* PFStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9232BFFA1DA895FC00B4EF82 /* PFStepper.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		92165CA41C2A67A500274852 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 92165C871C2A67A500274852 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 92165C8E1C2A67A500274852;
-			remoteInfo = PFStepperDemo;
-		};
-		92165CAF1C2A67A500274852 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 92165C871C2A67A500274852 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 92165C8E1C2A67A500274852;
-			remoteInfo = PFStepperDemo;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		92165C8F1C2A67A500274852 /* PFStepperDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PFStepperDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -42,31 +23,11 @@
 		92165C991C2A67A500274852 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		92165C9C1C2A67A500274852 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		92165C9E1C2A67A500274852 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		92165CA31C2A67A500274852 /* PFStepperDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PFStepperDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		92165CA71C2A67A500274852 /* PFStepperDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PFStepperDemoTests.swift; sourceTree = "<group>"; };
-		92165CA91C2A67A500274852 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		92165CAE1C2A67A500274852 /* PFStepperDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PFStepperDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		92165CB21C2A67A500274852 /* PFStepperDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PFStepperDemoUITests.swift; sourceTree = "<group>"; };
-		92165CB41C2A67A500274852 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9232BFFA1DA895FC00B4EF82 /* PFStepper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PFStepper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		92165C8C1C2A67A500274852 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		92165CA01C2A67A500274852 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		92165CAB1C2A67A500274852 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -81,8 +42,6 @@
 			children = (
 				9232BFF91DA895FC00B4EF82 /* Class */,
 				92165C911C2A67A500274852 /* PFStepperDemo */,
-				92165CA61C2A67A500274852 /* PFStepperDemoTests */,
-				92165CB11C2A67A500274852 /* PFStepperDemoUITests */,
 				92165C901C2A67A500274852 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -91,8 +50,6 @@
 			isa = PBXGroup;
 			children = (
 				92165C8F1C2A67A500274852 /* PFStepperDemo.app */,
-				92165CA31C2A67A500274852 /* PFStepperDemoTests.xctest */,
-				92165CAE1C2A67A500274852 /* PFStepperDemoUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -108,24 +65,6 @@
 				92165C9E1C2A67A500274852 /* Info.plist */,
 			);
 			path = PFStepperDemo;
-			sourceTree = "<group>";
-		};
-		92165CA61C2A67A500274852 /* PFStepperDemoTests */ = {
-			isa = PBXGroup;
-			children = (
-				92165CA71C2A67A500274852 /* PFStepperDemoTests.swift */,
-				92165CA91C2A67A500274852 /* Info.plist */,
-			);
-			path = PFStepperDemoTests;
-			sourceTree = "<group>";
-		};
-		92165CB11C2A67A500274852 /* PFStepperDemoUITests */ = {
-			isa = PBXGroup;
-			children = (
-				92165CB21C2A67A500274852 /* PFStepperDemoUITests.swift */,
-				92165CB41C2A67A500274852 /* Info.plist */,
-			);
-			path = PFStepperDemoUITests;
 			sourceTree = "<group>";
 		};
 		9232BFF91DA895FC00B4EF82 /* Class */ = {
@@ -157,42 +96,6 @@
 			productReference = 92165C8F1C2A67A500274852 /* PFStepperDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
-		92165CA21C2A67A500274852 /* PFStepperDemoTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 92165CBA1C2A67A500274852 /* Build configuration list for PBXNativeTarget "PFStepperDemoTests" */;
-			buildPhases = (
-				92165C9F1C2A67A500274852 /* Sources */,
-				92165CA01C2A67A500274852 /* Frameworks */,
-				92165CA11C2A67A500274852 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				92165CA51C2A67A500274852 /* PBXTargetDependency */,
-			);
-			name = PFStepperDemoTests;
-			productName = PFStepperDemoTests;
-			productReference = 92165CA31C2A67A500274852 /* PFStepperDemoTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		92165CAD1C2A67A500274852 /* PFStepperDemoUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 92165CBD1C2A67A500274852 /* Build configuration list for PBXNativeTarget "PFStepperDemoUITests" */;
-			buildPhases = (
-				92165CAA1C2A67A500274852 /* Sources */,
-				92165CAB1C2A67A500274852 /* Frameworks */,
-				92165CAC1C2A67A500274852 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				92165CB01C2A67A500274852 /* PBXTargetDependency */,
-			);
-			name = PFStepperDemoUITests;
-			productName = PFStepperDemoUITests;
-			productReference = 92165CAE1C2A67A500274852 /* PFStepperDemoUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -206,16 +109,6 @@
 					92165C8E1C2A67A500274852 = {
 						CreatedOnToolsVersion = 7.2;
 						LastSwiftMigration = 0800;
-					};
-					92165CA21C2A67A500274852 = {
-						CreatedOnToolsVersion = 7.2;
-						LastSwiftMigration = 0800;
-						TestTargetID = 92165C8E1C2A67A500274852;
-					};
-					92165CAD1C2A67A500274852 = {
-						CreatedOnToolsVersion = 7.2;
-						LastSwiftMigration = 0800;
-						TestTargetID = 92165C8E1C2A67A500274852;
 					};
 				};
 			};
@@ -233,8 +126,6 @@
 			projectRoot = "";
 			targets = (
 				92165C8E1C2A67A500274852 /* PFStepperDemo */,
-				92165CA21C2A67A500274852 /* PFStepperDemoTests */,
-				92165CAD1C2A67A500274852 /* PFStepperDemoUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -247,20 +138,6 @@
 				92165C9D1C2A67A500274852 /* LaunchScreen.storyboard in Resources */,
 				92165C9A1C2A67A500274852 /* Assets.xcassets in Resources */,
 				92165C981C2A67A500274852 /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		92165CA11C2A67A500274852 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		92165CAC1C2A67A500274852 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,36 +154,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		92165C9F1C2A67A500274852 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				92165CA81C2A67A500274852 /* PFStepperDemoTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		92165CAA1C2A67A500274852 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				92165CB31C2A67A500274852 /* PFStepperDemoUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		92165CA51C2A67A500274852 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 92165C8E1C2A67A500274852 /* PFStepperDemo */;
-			targetProxy = 92165CA41C2A67A500274852 /* PBXContainerItemProxy */;
-		};
-		92165CB01C2A67A500274852 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 92165C8E1C2A67A500274852 /* PFStepperDemo */;
-			targetProxy = 92165CAF1C2A67A500274852 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		92165C961C2A67A500274852 /* Main.storyboard */ = {
@@ -371,6 +219,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -410,6 +259,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -422,7 +272,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.Cee.PFStepperDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -434,59 +284,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.Cee.PFStepperDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 2.3;
-			};
-			name = Release;
-		};
-		92165CBB1C2A67A500274852 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = PFStepperDemoTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.Cee.PFStepperDemoTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 2.3;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PFStepperDemo.app/PFStepperDemo";
-			};
-			name = Debug;
-		};
-		92165CBC1C2A67A500274852 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = PFStepperDemoTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.Cee.PFStepperDemoTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 2.3;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PFStepperDemo.app/PFStepperDemo";
-			};
-			name = Release;
-		};
-		92165CBE1C2A67A500274852 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = PFStepperDemoUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.Cee.PFStepperDemoUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 2.3;
-				TEST_TARGET_NAME = PFStepperDemo;
-				USES_XCTRUNNER = YES;
-			};
-			name = Debug;
-		};
-		92165CBF1C2A67A500274852 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = PFStepperDemoUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.Cee.PFStepperDemoUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 2.3;
-				TEST_TARGET_NAME = PFStepperDemo;
-				USES_XCTRUNNER = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -507,24 +305,6 @@
 			buildConfigurations = (
 				92165CB81C2A67A500274852 /* Debug */,
 				92165CB91C2A67A500274852 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		92165CBA1C2A67A500274852 /* Build configuration list for PBXNativeTarget "PFStepperDemoTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				92165CBB1C2A67A500274852 /* Debug */,
-				92165CBC1C2A67A500274852 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		92165CBD1C2A67A500274852 /* Build configuration list for PBXNativeTarget "PFStepperDemoUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				92165CBE1C2A67A500274852 /* Debug */,
-				92165CBF1C2A67A500274852 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

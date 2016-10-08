@@ -12,9 +12,9 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let stepper = PFStepper(frame: CGRectMake((view.bounds.width - 80) / 2, (view.bounds.height - 80) / 2, 80, 80))
+        let stepper = PFStepper(frame: CGRect(x: (view.bounds.width - 80) / 2, y: (view.bounds.height - 80) / 2, width: 80, height: 80))
         view.addSubview(stepper)
-        view.backgroundColor = UIColor.lightGrayColor()
+        view.backgroundColor = UIColor.lightGray
         // Do any additional setup after loading the view, typically from a nib.
     }
 

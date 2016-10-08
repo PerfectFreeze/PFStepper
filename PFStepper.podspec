@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name                  = "PFStepper"
-  s.version               = "1.0.0"
+  s.version               = "2.0.0"
   s.summary               = "It may be the most elegant stepper you have ever had!"
   s.homepage              = "https://github.com/PerfectFreeze/PFStepper"
   s.license               = { :type => "MIT", :file => "LICENSE" }
