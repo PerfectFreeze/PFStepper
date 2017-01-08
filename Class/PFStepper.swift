@@ -9,19 +9,28 @@
 import UIKit
 
 @IBDesignable open class PFStepper: UIControl {
-    open var value: Double = 0 {
+    fileprivate var value: Double = 0 {
         didSet {
             value = min(maximumValue, max(minimumValue, value))
             let isInteger = floor(value) == value
+            let animation = CATransition()
+            animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+            animation.type = kCATransitionFade
+            animation.duration = 0.75
+            bottomButton.layer.add(animation, forKey: "kCATransitionFade");
+            topButton.layer.add(animation, forKey: "kCATransitionFade");
+
             if showIntegerIfDoubleIsInteger && isInteger {
-                let animation = CATransition()
-                animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
-                animation.type = kCATransitionFade
-                animation.duration = 0.75
-                bottomButton.layer.add(animation, forKey: "kCATransitionFade");
-                topButton.layer.add(animation, forKey: "kCATransitionFade");
-                topButton.setTitle(String(stringInterpolationSegment: Int(value)), for: UIControlState())
-                bottomButton.setTitle(String(stringInterpolationSegment: Int(value + stepValue)), for: UIControlState())
+                if value <= minimumValue {
+                    topButton.setTitle("", for: UIControlState())
+                    bottomButton.setTitle(String(stringInterpolationSegment: Int(value)), for: UIControlState())
+                } else if value > maximumValue {
+                    bottomButton.setTitle("", for: UIControlState())
+                    topButton.setTitle(String(stringInterpolationSegment: Int(value)), for: UIControlState())
+                } else {
+                    topButton.setTitle(String(stringInterpolationSegment: Int(value - stepValue)), for: UIControlState())
+                    bottomButton.setTitle(String(stringInterpolationSegment: Int(value)), for: UIControlState())
+                }
             } else {
                 topButton.setTitle(String(stringInterpolationSegment: value), for: UIControlState())
                 bottomButton.setTitle(String(stringInterpolationSegment: value + stepValue), for: UIControlState())
@@ -37,9 +46,8 @@ import UIKit
                 topButton.backgroundColor = UIColor(red: 238 / 255.0, green: 238 / 255.0, blue: 238 / 255.0, alpha: 1)
                 topButton.alpha = 0.5
             }
-            if value >= maximumValue {
+            if value > maximumValue {
                 bottomButton.setTitle("", for: UIControlState())
-            } else {
             }
         }
     }
@@ -48,8 +56,7 @@ import UIKit
             if minimumValue > maximumValue {
                 maximumValue = minimumValue
             }
-            bottomButtonText = String(minimumValue)
-            value = min(maximumValue, max(minimumValue, value))
+            initButtonValues()
         }
     }
     @IBInspectable open var maximumValue: Double = 24 {
@@ -57,18 +64,15 @@ import UIKit
             if maximumValue < minimumValue {
                 minimumValue = maximumValue
             }
-            value = min(maximumValue, max(minimumValue, value))
-        }
-    }
-    @IBInspectable open var stepValue: Double = 1
-    @IBInspectable open var autorepeat: Bool = true
-    @IBInspectable open var showIntegerIfDoubleIsInteger: Bool = true
-    @IBInspectable open var topButtonText: String = ""
-    open var bottomButtonText: String = "1" {
-        didSet {
+            value = min(maximumValue, minimumValue)
             initButtonValues()
         }
     }
+    @IBInspectable open var stepValue: Double = 1;
+    @IBInspectable open var autorepeat: Bool = true
+    @IBInspectable open var showIntegerIfDoubleIsInteger: Bool = true
+    fileprivate var topButtonText: String = ""
+    fileprivate var bottomButtonText: String = "";
     @IBInspectable open var buttonsTextColor: UIColor = UIColor(red: 0.0 / 255.0, green: 122.0 / 255.0, blue: 255.0 / 255.0, alpha: 1.0) {
         didSet {
             bottomButton.setTitleColor(buttonsTextColor, for: UIControlState())
@@ -182,7 +186,6 @@ import UIKit
     func setup() {
         addSubview(topButton)
         addSubview(bottomButton)
-
         backgroundColor = buttonsBackgroundColor
         NotificationCenter.default.addObserver(self, selector: #selector(PFStepper.reset), name: NSNotification.Name.UIApplicationWillResignActive, object: nil)
     }
@@ -203,12 +206,9 @@ import UIKit
     }
 
     func initButtonValues() {
-        if let bottomTextDouble = Double(bottomButtonText) {
-            if bottomTextDouble < minimumValue {
-                bottomButtonText = String(minimumValue)
-                bottomButton.setTitle(bottomButtonText, for: UIControlState())
-            }
-        }
+        value = min(maximumValue, minimumValue)
+        bottomButtonText = String(stringInterpolationSegment: Int(value))
+        bottomButton.setTitle(bottomButtonText, for: UIControlState())
     }
 
 
@@ -279,9 +279,11 @@ extension PFStepper {
         if Int(value) == Int(minimumValue) {
             animateBottomUp(value: Int(value))
             stepperState = .shouldIncrease
-        } else if Int(value) + 2 * Int(stepValue) <= Int(maximumValue) {
-            animateBottomUp(value: Int(value) + Int(stepValue))
+        } else if Int(value) + Int(stepValue) <= Int(maximumValue) {
+            animateBottomUp(value: Int(value))
             stepperState = .shouldIncrease
+        } else if Int(value) + 2 * Int(stepValue) <= Int(maximumValue) {
+            animateBottomUp(value: Int(value))
         }
         // we can bounce the button if it reached the maximumValue
     }

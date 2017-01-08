@@ -31,7 +31,7 @@
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="autorepeat" value="YES"/>
                                     <userDefinedRuntimeAttribute type="number" keyPath="minimumValue">
-                                        <real key="value" value="10"/>
+                                        <integer key="value" value="8"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="maximumValue">
                                         <real key="value" value="30"/>
@@ -39,8 +39,6 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="stepValue">
                                         <real key="value" value="2"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="topButtonText" value="2"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="bottomButtonText" value="1"/>
                                     <userDefinedRuntimeAttribute type="color" keyPath="buttonsTextColor">
                                         <color key="value" red="0.52106726169999995" green="0.24050712590000001" blue="0.68248951440000005" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
