@@ -6,7 +6,7 @@
 
 It may be the most elegant stepper you have ever had!
 
-![Sample](Sample.gif)
+![Sample](pfstepper-sample-2.gif)
 
 ## Usage
 
