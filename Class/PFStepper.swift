@@ -13,12 +13,14 @@ import UIKit
         didSet {
             value = min(maximumValue, max(minimumValue, value))
             let isInteger = floor(value) == value
-            let animation = CATransition()
-            animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
-            animation.type = kCATransitionFade
-            animation.duration = 0.75
-            bottomButton.layer.add(animation, forKey: "kCATransitionFade");
-            topButton.layer.add(animation, forKey: "kCATransitionFade");
+            if needsAnimation {
+                let animation = CATransition()
+                animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+                animation.type = kCATransitionFade
+                animation.duration = 0.75
+                bottomButton.layer.add(animation, forKey: "kCATransitionFade")
+                topButton.layer.add(animation, forKey: "kCATransitionFade")
+            }
 
             if showIntegerIfDoubleIsInteger && isInteger {
                 if value <= minimumValue {
@@ -68,11 +70,12 @@ import UIKit
             initButtonValues()
         }
     }
-    @IBInspectable open var stepValue: Double = 1;
+    @IBInspectable open var stepValue: Double = 1
     @IBInspectable open var autorepeat: Bool = true
     @IBInspectable open var showIntegerIfDoubleIsInteger: Bool = true
+    @IBInspectable open var needsAnimation: Bool = false
     fileprivate var topButtonText: String = ""
-    fileprivate var bottomButtonText: String = "";
+    fileprivate var bottomButtonText: String = ""
     @IBInspectable open var buttonsTextColor: UIColor = UIColor(red: 0.0 / 255.0, green: 122.0 / 255.0, blue: 255.0 / 255.0, alpha: 1.0) {
         didSet {
             bottomButton.setTitleColor(buttonsTextColor, for: UIControlState())
@@ -120,7 +123,7 @@ import UIKit
         button.titleLabel?.font = self.buttonsFont
         button.frame = CGRect(x: 0, y: bounds.size.height / 2, width: bounds.size.width,
                 height: bounds.size.height / 2)
-        return button;
+        return button
     }
 
     func createUpDownAnimateButton(_ value: Int) -> UIButton {
@@ -132,7 +135,7 @@ import UIKit
         button.alpha = 0.5
         button.frame = CGRect(x: 0, y: 0, width: bounds.size.width,
                 height: bounds.size.height / 2)
-        return button;
+        return button
     }
 
     enum StepperState {
@@ -267,7 +270,9 @@ extension PFStepper {
         bottomButton.isEnabled = false
         resetTimer()
         if Int(value) - Int(stepValue) >= Int(minimumValue) {
-            animateUpDown(value: Int(value))
+            if needsAnimation {
+                animateUpDown(value: Int(value))
+            }
             stepperState = .shouldDecrease
         }
         // we can bounce the button if it reached the minimum
@@ -277,13 +282,19 @@ extension PFStepper {
         topButton.isEnabled = false
         resetTimer()
         if Int(value) == Int(minimumValue) {
-            animateBottomUp(value: Int(value))
+            if(needsAnimation) {
+                animateBottomUp(value: Int(value))
+            }
             stepperState = .shouldIncrease
         } else if Int(value) + Int(stepValue) <= Int(maximumValue) {
-            animateBottomUp(value: Int(value))
+            if(needsAnimation) {
+                animateBottomUp(value: Int(value))
+            }
             stepperState = .shouldIncrease
         } else if Int(value) + 2 * Int(stepValue) <= Int(maximumValue) {
-            animateBottomUp(value: Int(value))
+            if needsAnimation {
+                animateBottomUp(value: Int(value))
+            }
         }
         // we can bounce the button if it reached the maximumValue
     }
